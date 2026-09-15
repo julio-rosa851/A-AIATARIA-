@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Açaí Prime - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-bg">
+            <div class="bg-shape shape-1"></div>
+            <div class="bg-shape shape-2"></div>
+            <div class="bg-shape shape-3"></div>
+        </div>
+        
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo" style="background: linear-gradient(135deg, #7B1FA2 0%, #9C27B0 100%); display:flex; align-items:center; justify-content:center; border: 2px solid rgba(123,31,162,0.3);">
+                    <i class="fas fa-ice-cream" style="font-size: 36px; color: white;"></i>
+                    <img id="authLogo" src="assets/logo.jpg" alt="Açaí Prime Logo" style="display:none; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:20px;" onerror="this.style.display='none'">
+                </div>
+                <h1>AÇAÍ PRIME</h1>
+                <p>Sistema de Gestão para Açaíterias</p>
+            </div>
+
+            <!-- Tabs de Login/Cadastro -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Entrar</button>
+                <button class="auth-tab" data-tab="register">Cadastrar</button>
+            </div>
+
+            <!-- Formulário de Login -->
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label>Email ou Telefone</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" id="loginEmail" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('loginPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Lembrar-me
+                    </label>
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                </div>
+                <button type="submit" class="btn-auth">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Entrar
+                </button>
+            </form>
+
+            <!-- Formulário de Cadastro -->
+            <form id="registerForm" class="auth-form hidden">
+                <div class="form-group">
+                    <label>Nome da Empresa</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-store"></i>
+                        <input type="text" id="companyName" placeholder="Minha Lanchonete" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Seu Nome</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="userName" placeholder="Seu nome completo" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="registerEmail" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="registerPhone" placeholder="(11) 99999-9999" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('registerPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Plano</label>
+                    <div class="plan-selector">
+                        <label class="plan-option">
+                            <input type="radio" name="plan" value="free" checked>
+                            <div class="plan-card">
+                                <span class="plan-name">Grátis</span>
+                                <span class="plan-price">R$ 0/mês</span>
+                            </div>
+                        </label>
+                        <label class="plan-option">
+                            <input type="radio" name="plan" value="basic">
+                            <div class="plan-card">
+                                <span class="plan-name">Básico</span>
+                                <span class="plan-price">R$ 49/mês</span>
+                            </div>
+                        </label>
+                        <label class="plan-option">
+                            <input type="radio" name="plan" value="professional">
+                            <div class="plan-card">
+                                <span class="plan-name">Profissional</span>
+                                <span class="plan-price">R$ 99/mês</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn-auth">
+                    <i class="fas fa-user-plus"></i>
+                    Criar Conta
+                </button>
+            </form>
+
+            <!-- Divisor -->
+            <div class="auth-divider">
+                <span>ou</span>
+            </div>
+
+            <!-- Login Social -->
+            <div class="social-login">
+                <button class="btn-social google">
+                    <i class="fab fa-google"></i>
+                    Continuar com Google
+                </button>
+                <button class="btn-social facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    Continuar com Facebook
+                </button>
+            </div>
+
+            <!-- Admin Link -->
+            <div class="admin-link">
+                <a href="admin-saas.html">
+                    <i class="fas fa-crown"></i>
+                    Área do Administrador
+                </a>
+            </div>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="auth-info">
+            <div class="info-card">
+                <i class="fas fa-robot"></i>
+                <h3>IA Atendente</h3>
+                <p>Automação inteligente para atender seus clientes 24/7</p>
+            </div>
+            <div class="info-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <p>Integração completa para gestão de mensagens</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Analytics</h3>
+                <p>Dashboard completo com métricas em tempo real</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="brain.js"></script>
+    <script src="html-editor.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        // Botão flutuante de edição na tela de login
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.createElement('button');
+            btn.title = 'Ativar modo de edição';
+            btn.innerHTML = '<i class="fas fa-edit"></i> Editar';
+            btn.style.cssText = `
+                position:fixed;bottom:20px;right:20px;
+                display:flex;align-items:center;gap:8px;
+                padding:10px 18px;
+                background:rgba(255,107,0,0.15);border:1px solid #7B1FA2;
+                border-radius:12px;color:#7B1FA2;
+                font-size:13px;font-weight:600;cursor:pointer;z-index:500;
+                transition:all 0.2s;font-family:'Poppins',sans-serif;
+            `;
+            btn.onmouseenter = () => { btn.style.background = '#7B1FA2'; btn.style.color = 'white'; };
+            btn.onmouseleave = () => {
+                if (!window.isEditModeActive()) {
+                    btn.style.background = 'rgba(255,107,0,0.15)';
+                    btn.style.color = '#7B1FA2';
+                }
+            };
+            btn.onclick = () => {
+                window.toggleEditMode();
+                if (window.isEditModeActive()) {
+                    btn.style.background = '#7B1FA2';
+                    btn.style.color = 'white';
+                    btn.innerHTML = '<i class="fas fa-times"></i> Sair';
+                } else {
+                    btn.style.background = 'rgba(255,107,0,0.15)';
+                    btn.style.color = '#7B1FA2';
+                    btn.innerHTML = '<i class="fas fa-edit"></i> Editar';
+                }
+            };
+            document.body.appendChild(btn);
+        });
+    </script>
+    <script src="firebase-diagnostic.js"></script>
+</body>
+</html>
