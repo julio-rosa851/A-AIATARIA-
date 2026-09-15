@@ -1,0 +1,29 @@
+{
+  "name": "sistema-acai-prime",
+  "version": "1.0.0",
+  "description": "Sistema de gestão para loja de açaí com IA integrada",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
+    "build": "echo Ready for Vercel"
+  },
+  "keywords": [
+    "acai",
+    "acaiteria",
+    "gestao",
+    "ia",
+    "delivery",
+    "pulse-food",
+    "supabase",
+    "vercel"
+  ],
+  "author": "Açaí Prime",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {}
+}

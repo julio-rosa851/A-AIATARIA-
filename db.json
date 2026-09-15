@@ -1,0 +1,20 @@
+{
+  "clientes": [],
+  "produtos": [],
+  "pedidos": [],
+  "settings": {
+    "companyName": "Açaí Prime",
+    "companyPhone": "",
+    "companyAddress": "",
+    "apiBaseUrl": "",
+    "whatsapp": {
+      "connected": false,
+      "number": "",
+      "token": "",
+      "welcomeMessage": ""
+    }
+  },
+  "iaResponses": [],
+  "accessLogs": [],
+  "whatsappMessages": []
+}

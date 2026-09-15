@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Açaí Prime - Admin SaaS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-saas.css">
+</head>
+<body>
+    <div class="saas-container">
+        <!-- Sidebar -->
+        <aside class="saas-sidebar">
+            <div class="sidebar-header">
+                <div class="admin-logo" style="background: linear-gradient(135deg, #7B1FA2 0%, #9C27B0 100%);">
+                    <i class="fas fa-ice-cream"></i>
+                </div>
+                <h2>Admin Açaí</h2>
+                <p style="font-size: 10px; color: #8A8D9B; letter-spacing: 2px; margin-top: 4px;">AÇAÍ PRIME</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-module="dashboard">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-module="companies">
+                    <i class="fas fa-building"></i>
+                    <span>Empresas</span>
+                </a>
+                <a href="#" class="nav-item" data-module="plans">
+                    <i class="fas fa-tags"></i>
+                    <span>Planos</span>
+                </a>
+                <a href="#" class="nav-item" data-module="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item" data-module="bot">
+                    <i class="fas fa-robot"></i>
+                    <span>Bot Global</span>
+                </a>
+                <a href="#" class="nav-item" data-module="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Configurações</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="auth.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="saas-main">
+            <!-- Header -->
+            <header class="saas-header">
+                <div class="header-title">
+                    <h1>Painel Açaí Prime</h1>
+                    <p>Gerencie todas as lojas do sistema</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-pill">
+                        <i class="fas fa-building"></i>
+                        <span id="totalCompanies">0</span>
+                        <label>Empresas</label>
+                    </div>
+                    <div class="stat-pill">
+                        <i class="fas fa-users"></i>
+                        <span id="totalUsers">0</span>
+                        <label>Usuários</label>
+                    </div>
+                    <div class="stat-pill">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span id="totalRevenue">R$ 0</span>
+                        <label>Receita</label>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="saas-content">
+                <!-- Dashboard Module -->
+                <div class="module" id="module-dashboard">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Empresas Ativas</h3>
+                                <p class="stat-value" id="activeCompanies">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Novas Este Mês</h3>
+                                <p class="stat-value" id="newCompanies">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Planos Expirando</h3>
+                                <p class="stat-value" id="expiringPlans">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon purple">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Mensagens IA</h3>
+                                <p class="stat-value" id="totalMessages">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-grid">
+                        <div class="chart-card">
+                            <h3><i class="fas fa-chart-line"></i> Crescimento de Empresas</h3>
+                            <div class="chart-placeholder">
+                                <div class="chart-bars">
+                                    <div class="bar" style="height: 20%"><span>20%</span></div>
+                                    <div class="bar" style="height: 35%"><span>35%</span></div>
+                                    <div class="bar" style="height: 45%"><span>45%</span></div>
+                                    <div class="bar" style="height: 60%"><span>60%</span></div>
+                                    <div class="bar" style="height: 55%"><span>55%</span></div>
+                                    <div class="bar" style="height: 80%"><span>80%</span></div>
+                                    <div class="bar" style="height: 95%"><span>95%</span></div>
+                                </div>
+                                <div class="chart-labels">
+                                    <span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span><span>Jun</span><span>Jul</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-card">
+                            <h3><i class="fas fa-clock"></i> Empresas Recentes</h3>
+                            <div class="companies-list" id="recentCompanies">
+                                <!-- Empresas serão renderizadas aqui -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Companies Module -->
+                <div class="module hidden" id="module-companies">
+                    <div class="module-header">
+                        <div class="search-box">
+                            <h2 class="brand-name">Açaí Prime</h2>
+                            <input type="text" id="searchCompanies" placeholder="Buscar empresas...">
+                        </div>
+                        <button class="btn-primary" onclick="openModal('company')">
+                            <i class="fas fa-plus"></i>
+                            Nova Empresa
+                        </button>
+                    </div>
+                    <div class="companies-table-container">
+                        <table class="companies-table">
+                            <thead>
+                                <tr>
+                                    <th>Empresa</th>
+                                    <th>Plano</th>
+                                    <th>Status</th>
+                                    <th>Clientes</th>
+                                    <th>Pedidos</th>
+                                    <th>Criado em</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="companiesTableBody">
+                                <!-- Empresas serão renderizadas aqui -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Plans Module -->
+                <div class="module hidden" id="module-plans">
+                    <div class="plans-grid">
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <div class="plan-icon free">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <h3>Grátis</h3>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price">R$ 0</span>
+                                <span class="period">/mês</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> 50 Clientes</li>
+                                <li><i class="fas fa-check"></i> 100 Pedidos/mês</li>
+                                <li><i class="fas fa-check"></i> 20 Produtos</li>
+                                <li><i class="fas fa-check"></i> CRM Básico</li>
+                                <li><i class="fas fa-check"></i> Cardápio Digital</li>
+                            </ul>
+                            <button class="btn-plan">Atualizar</button>
+                        </div>
+                        
+                        <div class="plan-card featured">
+                            <div class="plan-badge">Mais Popular</div>
+                            <div class="plan-header">
+                                <div class="plan-icon basic">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h3>Básico</h3>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price">R$ 49</span>
+                                <span class="period">/mês</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> 200 Clientes</li>
+                                <li><i class="fas fa-check"></i> 500 Pedidos/mês</li>
+                                <li><i class="fas fa-check"></i> 50 Produtos</li>
+                                <li><i class="fas fa-check"></i> CRM Completo</li>
+                                <li><i class="fas fa-check"></i> WhatsApp Basic</li>
+                            </ul>
+                            <button class="btn-plan">Atualizar</button>
+                        </div>
+                        
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <div class="plan-icon pro">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <h3>Profissional</h3>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price">R$ 99</span>
+                                <span class="period">/mês</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Clientes Ilimitados</li>
+                                <li><i class="fas fa-check"></i> Pedidos Ilimitados</li>
+                                <li><i class="fas fa-check"></i> Produtos Ilimitados</li>
+                                <li><i class="fas fa-check"></i> IA Avançada</li>
+                                <li><i class="fas fa-check"></i> Analytics</li>
+                            </ul>
+                            <button class="btn-plan">Atualizar</button>
+                        </div>
+                        
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <div class="plan-icon corporate">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h3>Corporativo</h3>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price">Sob Consulta</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Multi-Filiais</li>
+                                <li><i class="fas fa-check"></i> API Aberta</li>
+                                <li><i class="fas fa-check"></i> Suporte Prioritário</li>
+                                <li><i class="fas fa-check"></i> Personalização</li>
+                                <li><i class="fas fa-check"></i> SLA Garantido</li>
+                            </ul>
+                            <button class="btn-plan">Contatar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Module -->
+                <div class="module hidden" id="module-analytics">
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3><i class="fas fa-chart-pie"></i> Distribuição por Plano</h3>
+                            <div class="pie-chart">
+                                <div class="pie-segment free" style="--value: 40%"></div>
+                                <div class="pie-segment basic" style="--value: 35%"></div>
+                                <div class="pie-segment pro" style="--value: 20%"></div>
+                                <div class="pie-segment corporate" style="--value: 5%"></div>
+                            </div>
+                            <div class="pie-legend">
+                                <div class="legend-item"><span class="dot free"></span> Grátis (40%)</div>
+                                <div class="legend-item"><span class="dot basic"></span> Básico (35%)</div>
+                                <div class="legend-item"><span class="dot pro"></span> Profissional (20%)</div>
+                                <div class="legend-item"><span class="dot corporate"></span> Corporativo (5%)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-card">
+                            <h3><i class="fas fa-globe"></i> Top Regiões</h3>
+                            <div class="region-list">
+                                <div class="region-item">
+                                    <span class="region-name">São Paulo - SP</span>
+                                    <span class="region-value">45%</span>
+                                </div>
+                                <div class="region-item">
+                                    <span class="region-name">Rio de Janeiro - RJ</span>
+                                    <span class="region-value">25%</span>
+                                </div>
+                                <div class="region-item">
+                                    <span class="region-name">Belo Horizonte - MG</span>
+                                    <span class="region-value">15%</span>
+                                </div>
+                                <div class="region-item">
+                                    <span class="region-name">Curitiba - PR</span>
+                                    <span class="region-value">10%</span>
+                                </div>
+                                <div class="region-item">
+                                    <span class="region-name">Outros</span>
+                                    <span class="region-value">5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-card full-width">
+                            <h3><i class="fas fa-list"></i> Uso de Recursos</h3>
+                            <div class="resources-grid">
+                                <div class="resource-item">
+                                    <div class="resource-header">
+                                        <span>CRM</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="resource-bar"><div class="resource-fill" style="width: 85%"></div></div>
+                                </div>
+                                <div class="resource-item">
+                                    <div class="resource-header">
+                                        <span>Cardápio Digital</span>
+                                        <span>92%</span>
+                                    </div>
+                                    <div class="resource-bar"><div class="resource-fill" style="width: 92%"></div></div>
+                                </div>
+                                <div class="resource-item">
+                                    <div class="resource-header">
+                                        <span>WhatsApp</span>
+                                        <span>78%</span>
+                                    </div>
+                                    <div class="resource-bar"><div class="resource-fill" style="width: 78%"></div></div>
+                                </div>
+                                <div class="resource-item">
+                                    <div class="resource-header">
+                                        <span>IA Atendente</span>
+                                        <span>65%</span>
+                                    </div>
+                                    <div class="resource-bar"><div class="resource-fill" style="width: 65%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bot Global Module -->
+                <div class="module hidden" id="module-bot">
+                    <div class="bot-config">
+                        <div class="bot-training-card">
+                            <h3><i class="fas fa-brain"></i> Treinamento Global do Bot</h3>
+                            <p class="card-description">Respostas que serão compartilhadas com todas as empresas</p>
+                            
+                            <div class="training-form">
+                                <div class="form-group">
+                                    <label>Palavra-chave</label>
+                                    <input type="text" id="globalTrigger" placeholder="Ex: cardápio, preço, entrega">
+                                </div>
+                                <div class="form-group">
+                                    <label>Resposta</label>
+                                    <textarea id="globalResponse" rows="3" placeholder="Resposta automática..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Categoria</label>
+                                    <select id="globalCategory">
+                                        <option value="general">Geral</option>
+                                        <option value="menu">Cardápio</option>
+                                        <option value="delivery">Entrega</option>
+                                        <option value="payment">Pagamento</option>
+                                        <option value="hours">Horário</option>
+                                        <option value="promotion">Promoção</option>
+                                    </select>
+                                </div>
+                                <button class="btn-primary" onclick="addGlobalTraining()">
+                                    <i class="fas fa-plus"></i>
+                                    Adicionar
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="bot-knowledge-card">
+                            <h3><i class="fas fa-database"></i> Base de Conhecimento Global</h3>
+                            <div class="knowledge-list" id="globalKnowledge">
+                                <!-- Conhecimento global será renderizado aqui -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Module -->
+                <div class="module hidden" id="module-settings">
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3><i class="fas fa-palette"></i> Aparência Global</h3>
+                            <div class="color-settings">
+                                <div class="color-option">
+                                    <label>Cor Principal</label>
+                                    <input type="color" id="globalPrimaryColor" value="#7B1FA2">
+                                </div>
+                                <div class="color-option">
+                                    <label>Cor Secundária</label>
+                                    <input type="color" id="globalSecondaryColor" value="#1A0A2E">
+                                </div>
+                                <div class="color-option">
+                                    <label>Cor de Destaque</label>
+                                    <input type="color" id="globalAccentColor" value="#CE93D8">
+                                </div>
+                            </div>
+                            <button class="btn-primary" onclick="saveGlobalColors()">
+                                <i class="fas fa-save"></i>
+                                Salvar Cores
+                            </button>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3><i class="fas fa-bell"></i> Notificações do Sistema</h3>
+                            <div class="toggle-option">
+                                <label>Nova empresa cadastrada</label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-option">
+                                <label>Plano expirando</label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-option">
+                                <label>Novo pagamento</label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3><i class="fas fa-envelope"></i> Configurações de Email</h3>
+                            <div class="form-group">
+                                <label>Email do Administrador</label>
+                                <input type="email" id="adminEmail" placeholder="admin@acaiprime.com.br">
+                            </div>
+                            <div class="form-group">
+                                <label>Email de Suporte</label>
+                                <input type="email" id="supportEmail" placeholder="suporte@acaiprime.com.br">
+                            </div>
+                            <button class="btn-primary" onclick="saveEmailSettings()">
+                                <i class="fas fa-save"></i>
+                                Salvar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay hidden" id="modalOverlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Nova Empresa</h2>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Conteúdo do modal -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="brain.js"></script>
+    <script src="admin-saas.js"></script>
+    <script src="session-check.js"></script>
+</body>
+</html>
